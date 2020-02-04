@@ -1,0 +1,6 @@
+main: io.github.ktasra.Crystal
+name: Crystal
+version: ${project.version}
+description: This plugin is main-plugin of CrystalNetwork.
+author: tasra
+website: https://ktasra.github.io/
