@@ -12,6 +12,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
+import org.bukkit.scoreboard.Team;
 
 import io.github.ktasra.Crystal;
 
@@ -77,6 +80,13 @@ public class CentralEvent implements Listener {
 			}
 		};
 		run.runTaskAsynchronously(plugin);
+		Player target = event.getPlayer();
+		ScoreboardManager manager = plugin.getServer().getScoreboardManager();
+		Scoreboard scoreboard = manager.getNewScoreboard();
+		Team team = scoreboard.registerNewTeam("admin");
+		team.addEntry(target.getName());
+		team.setPrefix("aaaaaaaaaaaaaaaa");
+		target.setScoreboard(scoreboard);
 	}
 
 	@EventHandler
@@ -93,6 +103,6 @@ public class CentralEvent implements Listener {
 			player.sendMessage(target.getDisplayName() + "§e>>§r " + msg);
 		}
 		target.getServer().getConsoleSender()
-		.sendMessage(target.getDisplayName() + " typed \"" + msg + "§r\" (" + event.getMessage() + ")");
+				.sendMessage(target.getDisplayName() + " typed \"" + msg + "§r\" (" + event.getMessage() + ")");
 	}
 }

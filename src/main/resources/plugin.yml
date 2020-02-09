@@ -1,6 +1,12 @@
 main: io.github.ktasra.Crystal
 name: Crystal
 version: ${project.version}
-description: This plugin is main-plugin of CrystalNetwork.
+description: This is main-plugin of CrystalNetwork.
 author: tasra
 website: https://ktasra.github.io/
+
+commands:
+  develop:
+    description: This is admin-command for developer.
+    aliases: [dev, d]
+    usage: /<command> options...
